@@ -5,9 +5,20 @@ class History
     @record = {}
     @logs = []
   end
-  def add_deposit(amount)
+
+  def add_record(deposit, withdraw, balance)
     @record[:date] = Date.new
-    @record[:deposit] = amount
+    @record[:credit] = deposit
+    @record[:debit] = withdraw
+    @record[:balance] = balance
+  end
+
+  def add_log
+    @logs << @record
+  end
+
+  def reset_record
+    @record = {}
   end
 
 end

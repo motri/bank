@@ -14,6 +14,6 @@ class Account
 
   def deposit(amount)
     @my_balance.add(amount)
-    @transaction.add_deposit(amount)
+    @transaction.add_record(amount, '', @my_balance.total)
   end
 end

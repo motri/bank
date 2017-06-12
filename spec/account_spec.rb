@@ -15,11 +15,13 @@ describe Account do
     end
   end
   describe '#deposit' do
-    it 'adds amount to balance and refelcts on account balance' do
+    it 'adds amount to balance and reflects on account balance' do
       my_account.deposit(10)
       expect(my_account.balance).to eq 10
     end
     it 'creates a new record and adds it to the logs' do
+      my_account.deposit(10)
+      expect(my_account.transaction.record[:balance]).to eq 10
     end
   end
 end
