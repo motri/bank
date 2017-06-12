@@ -19,8 +19,8 @@ describe 'Printer' do
                       }]
       expect { printer.display(transactions) }.to output(
         "date || credit || debit || balance\n" \
-        "06/12/2017||15||||35\n" \
-        "06/12/2017||20||||20\n"
+        "#{Time.now.strftime('%m/%d/%Y')}||15||||35\n" \
+        "#{Time.now.strftime('%m/%d/%Y')}||20||||20\n"
       ).to_stdout
     end
   end
