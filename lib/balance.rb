@@ -6,11 +6,11 @@ class Balance
     @total = 0
   end
 
-  def deposit(amount)
+  def add(amount)
     @total += amount
   end
 
-  def withdraw(amount)
+  def deduct(amount)
     raise 'Insuficient funds.' if @total - amount < 0
     @total -= amount
   end
