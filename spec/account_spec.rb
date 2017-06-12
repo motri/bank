@@ -31,7 +31,7 @@ describe Account do
   describe '#withdraw' do
     context 'when balance lower than withdraw amount' do
       it 'raises and error' do
-      expect { my_account.withdraw(10) }.to raise_error('Insuficient funds.')
+        expect { my_account.withdraw(10) }.to raise_error('Insuficient funds.')
       end
     end
     context 'when balance is higher than withdraw amount' do
@@ -48,7 +48,7 @@ describe Account do
       it 'creates a record in logs with date, debit and balance' do
         my_account.deposit(10)
         my_account.withdraw(5)
-        expect(my_account.transaction.logs[1]).to eq({:date=>Time.now.strftime("%m/%d/%Y"), :credit=>"", :debit=>5, :balance=>5})
+        expect(my_account.transaction.logs[1]).to eq(date: Time.now.strftime('%m/%d/%Y'), credit: '', debit: 5, balance: 5)
       end
     end
   end

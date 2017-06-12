@@ -8,7 +8,7 @@ class History
   end
 
   def add_record(deposit, withdraw, balance)
-    @record[:date] = Time.now.strftime("%m/%d/%Y")
+    @record[:date] = Time.now.strftime('%m/%d/%Y')
     @record[:credit] = deposit
     @record[:debit] = withdraw
     @record[:balance] = balance
@@ -21,5 +21,4 @@ class History
   def reset_record
     @record = {}
   end
-
 end

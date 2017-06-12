@@ -11,7 +11,14 @@ Run bundle install in your command line.
 Run rspec in your command line to check tests.
 ```
 ### Technology
-This script is written in Ruby and tested with RSpec.
+This script was written in Ruby and tested with RSpec.
+
+### Interaction
+In order to interact with the script start irb in your command line (or use your favorite repl) and begin by typing :
+" require 'Time' ", since this script uses the Time class.
+Then continue by adding the different classes in the lib folder.
+I decided to create a "controller" class named Account which initializes an instance of the other classes. Therefore by
+creating an instance of Account you effectively create an instance of the other classes and have access to the rest of classes and their methods.
 
 ### Tech test requirements
 

@@ -17,7 +17,6 @@ class Account
     @my_balance.add(amount)
     record_deposit(amount)
     log_and_reset
-
   end
 
   def withdraw(amount)
@@ -38,12 +37,10 @@ class Account
 
   def record_withdraw(amount)
     @transaction.add_record('', amount, @my_balance.total)
-
   end
 
   def log_and_reset
     @transaction.add_log
     @transaction.reset_record
   end
-
 end
