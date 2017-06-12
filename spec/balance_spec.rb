@@ -1,8 +1,11 @@
 require 'balance'
 
 describe Balance do
-  let(:balance) {Balance.new}
   describe 'initial total' do
-    expect(:balance.total).to equal(0)
+    let(:balance) { Balance.new }
+
+    it 'is initialized with a value of 0' do
+      expect(balance.total).to eq 0
+    end
   end
 end
