@@ -1,8 +1,12 @@
-# It understan account balance
+# It understands account balance
 class Balance
   attr_accessor :total
 
   def initialize
     @total = 0
+  end
+
+  def deposit(amount)
+    @total = @total + amount
   end
 end
