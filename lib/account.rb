@@ -1,8 +1,7 @@
 # Understand changes in account
 
 class Account
-  attr_accessor :my_balance, :transaction, :balance
-
+  attr_accessor :my_balance, :transaction
 
   def initialize
     @my_balance = Balance.new
@@ -13,11 +12,8 @@ class Account
     @my_balance.total
   end
 
-
   def deposit(amount)
     @my_balance.add(amount)
     @history.add_deposit(amount, @my_balance.total)
   end
-
-
 end

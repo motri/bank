@@ -1,10 +1,8 @@
 class History
-
   attr_accessor :record, :logs
 
   def initialize
-    @record = {}
+    @record = Array.new
     @logs = []
   end
-
 end

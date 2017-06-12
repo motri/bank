@@ -19,6 +19,7 @@ describe Account do
       my_account.deposit(10)
       expect(my_account.balance).to eq 10
     end
-
+    it 'creates a new record and adds it to the logs' do
+    end
   end
 end
