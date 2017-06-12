@@ -9,4 +9,9 @@ class Balance
   def deposit(amount)
     @total += amount
   end
+
+  def withdraw(amount)
+    raise 'Insuficient funds.' if @total - amount < 0
+    @total -= amount
+  end
 end
