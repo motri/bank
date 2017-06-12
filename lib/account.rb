@@ -14,6 +14,15 @@ class Account
 
   def deposit(amount)
     @my_balance.add(amount)
-    @transaction.add_record(amount, '', @my_balance.total)
+    record_deposit(amount)
   end
+
+  private
+
+  def record_deposit(amount)
+    @transaction.add_record(amount, '', @my_balance.total)
+    @transaction.add_log
+    @transaction.reset_record
+  end
+
 end

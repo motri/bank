@@ -8,7 +8,7 @@ describe History do
   it 'initializes an empty logs array' do
     expect(history.logs).to eq []
   end
-  describe '#add_deposit' do
+  describe '#add_record' do
     let(:history) { History.new }
     it 'adds the current date to record hash as a :date and value pair' do
       history.add_record(10,'',20)
@@ -17,6 +17,10 @@ describe History do
     it 'adds a deposit key to the record with deposit amount as value' do
       history.add_record(10,'',20)
       expect(history.record[:credit]).to eq 10
+    end
+    it 'adds a debit key to the record with withdrawed amount as value' do
+      history.add_record('',10 ,20)
+      expect(history.record[:debit]).to eq 10
     end
     it 'adds a balance key to the record with account balance as value' do
       history.add_record(10, '', 20)

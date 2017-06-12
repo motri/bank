@@ -21,7 +21,7 @@ describe Account do
     end
     it 'creates a new record and adds it to the logs' do
       my_account.deposit(10)
-      expect(my_account.transaction.record[:balance]).to eq 10
+      expect(my_account.transaction.logs[0][:balance]).to eq 10
     end
   end
 end
