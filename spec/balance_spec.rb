@@ -9,7 +9,8 @@ describe Balance do
     end
   end
   describe '#deposit, allows you to add to your balance' do
-    let(:balance) {Balance.new}
+    let(:balance) { Balance.new }
+    
     it'the amount is added to your current total' do
       balance.deposit(50)
       expect(balance.total).to eq 50

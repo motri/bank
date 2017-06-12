@@ -7,6 +7,6 @@ class Balance
   end
 
   def deposit(amount)
-    @total = @total + amount
+    @total += amount
   end
 end
