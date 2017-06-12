@@ -1,5 +1,4 @@
-# IT understand account management
-
+# It understands account management
 class Account
   attr_accessor :my_balance, :transaction, :printer
 
@@ -16,13 +15,11 @@ class Account
   def deposit(amount)
     @my_balance.add(amount)
     record_deposit(amount)
-    log_and_reset
   end
 
   def withdraw(amount)
     @my_balance.deduct(amount)
     record_withdraw(amount)
-    log_and_reset
   end
 
   def print_transaction_history
@@ -37,10 +34,5 @@ class Account
 
   def record_withdraw(amount)
     @transaction.add_record('', amount, @my_balance.total)
-  end
-
-  def log_and_reset
-    @transaction.add_log
-    @transaction.reset_record
   end
 end

@@ -1,24 +1,18 @@
 # It understands transaction history
 class History
-  attr_accessor :record, :logs
+  attr_accessor :logs
 
   def initialize
-    @record = {}
     @logs = []
   end
 
   def add_record(deposit, withdraw, balance)
-    @record[:date] = Time.now.strftime('%m/%d/%Y')
-    @record[:credit] = deposit
-    @record[:debit] = withdraw
-    @record[:balance] = balance
-  end
-
-  def add_log
-    @logs << @record
-  end
-
-  def reset_record
-    @record = {}
+    record = {
+      date: Time.now.strftime('%m/%d/%Y'),
+      credit: deposit,
+      debit: withdraw,
+      balance: balance
+    }
+    @logs << record
   end
 end
