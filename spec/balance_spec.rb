@@ -16,9 +16,16 @@ describe Balance do
   end
   describe '#withdraw' do
     let(:balance) { Balance.new }
-    context 'when balance is 0' do
+    context 'when balance is 0 or lower than withdrawed amount' do
       it 'raises an error' do
         expect { balance.withdraw(10) }.to raise_error('Insuficient funds.')
+      end
+      context 'when balance is higher than withdrawed amount' do
+        it 'deducts amount from total' do
+          balance.deposit(50)
+          balance.withdraw(10)
+          expect(balance.total).to eq 40
+        end
       end
     end
   end
