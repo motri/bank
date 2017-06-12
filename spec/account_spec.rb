@@ -70,8 +70,8 @@ describe Account do
       my_account.withdraw(5)
       expect { my_account.print_transaction_history }.to output(
         "date || credit || debit || balance\n" \
-        "#{Time.now.strftime('%m/%d/%Y')}||||5||5\n" \
-        "#{Time.now.strftime('%m/%d/%Y')}||10||||10\n"
+        "#{Time.now.strftime('%m/%d/%Y')} ||  || 5 || 5\n" \
+        "#{Time.now.strftime('%m/%d/%Y')} || 10 ||  || 10\n"
       ).to_stdout
     end
   end

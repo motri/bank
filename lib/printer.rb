@@ -10,7 +10,7 @@ class Printer
         transaction[:credit],
         transaction[:debit],
         transaction[:balance]
-      ].join('||')
+      ].join(' || ')
     end
   end
 end
