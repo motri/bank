@@ -12,7 +12,7 @@ describe History do
     let(:history) { History.new }
     it 'adds the current date to record hash as a :date and value pair' do
       history.add_record(10,'',20)
-      expect(history.record[:date]).to eq Date.new
+      expect(history.record[:date]).to eq Time.now.strftime("%m/%d/%Y")
     end
     it 'adds a deposit key to the record with deposit amount as value' do
       history.add_record(10,'',20)
@@ -32,7 +32,7 @@ describe History do
       history.add_record(10, '', 20)
       history.add_log
       expect(history.logs).to_not be_empty
-      expect(history.logs).to eq [{:date=> Date.new, :credit=>10, :debit=>"", :balance=>20}]
+      expect(history.logs).to eq [{:date=> Time.now.strftime("%m/%d/%Y"), :credit=>10, :debit=>"", :balance=>20}]
     end
   end
   describe '#reset_record' do

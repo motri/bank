@@ -1,3 +1,4 @@
+# It understands transaction history
 class History
   attr_accessor :record, :logs
 
@@ -7,7 +8,7 @@ class History
   end
 
   def add_record(deposit, withdraw, balance)
-    @record[:date] = Date.new
+    @record[:date] = Time.now.strftime("%m/%d/%Y")
     @record[:credit] = deposit
     @record[:debit] = withdraw
     @record[:balance] = balance

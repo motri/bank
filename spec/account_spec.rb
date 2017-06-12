@@ -19,9 +19,37 @@ describe Account do
       my_account.deposit(10)
       expect(my_account.balance).to eq 10
     end
-    it 'creates a new record and adds it to the logs' do
+    it 'creates a new record and adds it to the logs with the correcrt balance' do
       my_account.deposit(10)
       expect(my_account.transaction.logs[0][:balance]).to eq 10
+    end
+    it 'does not add a value to the debit key' do
+      my_account.deposit(10)
+      expect(my_account.transaction.logs[0][:debit]).to eq ''
+    end
+  end
+  describe '#withdraw' do
+    context 'when balance lower than withdraw amount' do
+      it 'raises and error' do
+      expect { my_account.withdraw(10) }.to raise_error('Insuficient funds.')
+      end
+    end
+    context 'when balance is higher than withdraw amount' do
+      it 'deducts amount from balance' do
+        my_account.deposit(10)
+        my_account.withdraw(5)
+        expect(my_account.balance).to eq 5
+      end
+      it 'creates a record with no credit value' do
+        my_account.deposit(10)
+        my_account.withdraw(5)
+        expect(my_account.transaction.logs[1][:credit]).to eq ''
+      end
+      it 'creates a record in logs with date, debit and balance' do
+        my_account.deposit(10)
+        my_account.withdraw(5)
+        expect(my_account.transaction.logs[1]).to eq({:date=>Time.now.strftime("%m/%d/%Y"), :credit=>"", :debit=>5, :balance=>5})
+      end
     end
   end
 end
