@@ -14,7 +14,7 @@ describe Account do
     end
 
     it 'initalizes an instance of history with an empty logs array' do
-      expect(my_account.transaction.logs).to eq []
+      expect(my_account.history.logs).to eq []
     end
   end
 
@@ -26,12 +26,12 @@ describe Account do
 
     it 'creates a record and adds it to the logs with the correct balance' do
       my_account.deposit(10)
-      expect(my_account.transaction.logs[0][:balance]).to eq 10
+      expect(my_account.history.logs[0].balance).to eq 10
     end
 
     it 'does not add a value to the debit key' do
       my_account.deposit(10)
-      expect(my_account.transaction.logs[0][:debit]).to eq ''
+      expect(my_account.history.logs[0].debit).to eq ''
     end
   end
 
@@ -51,14 +51,14 @@ describe Account do
       it 'creates a record with no credit value' do
         my_account.deposit(10)
         my_account.withdraw(5)
-        expect(my_account.transaction.logs[1][:credit]).to eq ''
+        expect(my_account.history.logs[1].credit).to eq ''
       end
 
       it 'creates a record in logs with date, debit and balance' do
         my_account.deposit(10)
         my_account.withdraw(5)
-        expect(my_account.transaction.logs[1]).to eq(
-          date: Time.now.strftime('%m/%d/%Y'), credit: '', debit: 5, balance: 5
+        expect(my_account.history.logs[1].date).to eq(
+          Time.now.strftime('%m/%d/%Y')
         )
       end
     end

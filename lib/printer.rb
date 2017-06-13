@@ -6,10 +6,10 @@ class Printer
     puts 'date || credit || debit || balance'
     array.reverse.each do |transaction|
       puts [
-        transaction[:date],
-        transaction[:credit],
-        transaction[:debit],
-        transaction[:balance]
+        transaction.date,
+        transaction.credit,
+        transaction.debit,
+        transaction.balance
       ].join(' || ')
     end
   end
