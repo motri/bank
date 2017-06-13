@@ -1,6 +1,6 @@
 # It understands account management
 class Account
-  attr_reader :my_balance, :history, :printer, :transaction
+  attr_reader :my_balance, :history, :printer
 
   def initialize
     @my_balance = Balance.new
